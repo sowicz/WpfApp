@@ -1,0 +1,95 @@
+﻿<Window
+    x:Class="WpfApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="TCPSender"
+    MaxWidth="800"
+    MaxHeight="660"
+    ResizeMode="CanMinimize"
+    mc:Ignorable="d">
+
+    <Grid Background="Snow">
+
+        <!--  Definicja wierszy  -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!--  Pasek nawigacji  -->
+            <RowDefinition Height="*" />
+            <!--  Dynamiczna zawartość  -->
+            <RowDefinition Height="Auto" />
+            <!--  Nowy wiersz dla paska wersji  -->
+        </Grid.RowDefinitions>
+
+        <!--  Pasek nawigacji  -->
+        <Grid
+            Grid.Row="0"
+            Height="72"
+            Background="Snow">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <!--  Main  -->
+                <ColumnDefinition Width="Auto" />
+                <!--  Recipe  -->
+                <ColumnDefinition Width="*" />
+                <!--  Pusty, aby wypchnąć Settings  -->
+                <ColumnDefinition Width="Auto" />
+                <!--  Settings  -->
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Grid.Column="0"
+                Margin="10"
+                Padding="20,5"
+                Command="{Binding ShowMainCommand}"
+                Content="Main"
+                FontSize="18" />
+
+            <Button
+                Grid.Column="1"
+                Margin="10"
+                Padding="20,5"
+                Command="{Binding ShowRecipeCommand}"
+                Content="Recipe"
+                FontSize="18" />
+
+            <Button
+                Grid.Column="3"
+                Margin="10"
+                Padding="20,5"
+                Command="{Binding ShowAuthViewCommand}"
+                Content="Settings"
+                FontSize="18" />
+        </Grid>
+
+        <!--  Dynamiczna zawartość  -->
+        <Grid Grid.Row="1" Margin="10">
+            <ContentControl Content="{Binding CurrentView}">
+                <ContentControl.Style>
+                    <Style TargetType="ContentControl">
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="Width" Value="760" />
+                        <!--  Maksymalna szerokość dla UserControl  -->
+                        <Setter Property="Height" Value="450" />
+                    </Style>
+                </ContentControl.Style>
+            </ContentControl>
+        </Grid>
+
+        <!--  Pasek z wersją  -->
+        <Grid
+            Grid.Row="2"
+            Height="18"
+            Background="LightGray">
+            <TextBlock
+                Margin="10,0,0,0"
+                VerticalAlignment="Center"
+                FontSize="12"
+                Foreground="gray"
+                Text="Version: 1.0" />
+        </Grid>
+
+    </Grid>
+</Window>
