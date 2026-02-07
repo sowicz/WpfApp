@@ -21,9 +21,3 @@ Aplikacja desktopowa stworzona w technologii **WPF (.NET)**, umożliwiająca naw
 
 - .NET 8
 - Windows 10/11
-
-## 🚀 Uruchomienie
-
-1. Sklonuj repozytorium:
-   ```bash
-   git clone https://github.com/twoj-login/twoj-projekt.git
